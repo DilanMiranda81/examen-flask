@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de sesión</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body class="form-body">
+    <div class="tarjeta-form">
+        <h1>Inicio de sesión</h1>
+
+        <form method="POST" action="{{ url_for('ejercicio2') }}">
+            <label for="usuario">Ingresa tu nombre</label>
+            <input type="text" id="usuario" name="usuario" required>
+
+            <label for="contrasena">Ingresa tu contraseña</label>
+            <input type="password" id="contrasena" name="contrasena" required>
+
+            <button type="submit" class="btn-enviar">Verificar</button>
+        </form>
+
+        {% if mensaje %}
+            <p class="mensaje-login">{{ mensaje }}</p>
+        {% endif %}
+
+        <div class="volver-link">
+            <a href="{{ url_for('index') }}">Volver al menú</a>
+        </div>
+    </div>
+</body>
+</html>
